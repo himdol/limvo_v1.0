@@ -32,6 +32,7 @@ dependencies {
     implementation ('org.projectlombok:lombok')
     implementation ('org.springframework.boot:spring-boot-starter-data-jpa')
     implementation ('com.h2database:h2')
+    implementation ('org.springframework.boot:spring-boot-starter-mustache')
     annotationProcessor ('org.projectlombok:lombok')
     testAnnotationProcessor ('org.projectlombok:lombok')
     testImplementation ('org.projectlombok:lombok')
