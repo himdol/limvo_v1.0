@@ -1,11 +1,11 @@
 package com.limvo.front;
 
+import com.limvo.front.web.dto.PostsResponseDto;
 import com.limvo.front.web.dto.PostsSaveRequestDto;
+import com.limvo.front.web.dto.PostsUpdateRequestDto;
 import com.limvo.front.web.service.posts.PostsService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -15,6 +15,16 @@ public class PostsApiController {
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto postsSaveRequestDto) {
         return postsService.save(postsSaveRequestDto);
+    }
+
+    @PutMapping("/api/v1/posts/{id}")
+    public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto postsUpdateRequestDto) {
+        return postsService.update(id, postsUpdateRequestDto);
+    }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById(@PathVariable Long id){
+        return postsService.findById(id);
     }
 }
 
