@@ -4,7 +4,9 @@ import com.limvo.front.web.domain.user.User;
 import lombok.Getter;
 
 @Getter
-public class SessionUser {
+public class SessionUser{
+
+
     private String name;
     private String email;
     private String picture;
