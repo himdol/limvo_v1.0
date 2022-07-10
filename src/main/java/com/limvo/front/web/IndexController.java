@@ -14,11 +14,9 @@ import java.util.Objects;
 public class IndexController {
 
     private final PostsService postsService;
-    private final HttpSession httpSession;
 
     public IndexController(PostsService postsService) {
         this.postsService = postsService;
-        this.httpSession = httpSession;
     }
 
     @GetMapping("/")
