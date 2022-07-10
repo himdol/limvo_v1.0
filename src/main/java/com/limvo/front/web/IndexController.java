@@ -1,5 +1,6 @@
 package com.limvo.front.web;
 
+import com.limvo.front.config.auth.LoginUser;
 import com.limvo.front.config.auth.dto.SessionUser;
 import com.limvo.front.web.service.posts.PostsService;
 import org.springframework.stereotype.Controller;
@@ -21,9 +22,9 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public String index(Model model){
+    public String index(Model model, @LoginUser SessionUser sessionUser){
         model.addAttribute("posts", postsService.findAllDesc());
-        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
+//        SessionUser sessionUser = (SessionUser) httpSession.getAttribute("user");
 
         if(!Objects.isNull(sessionUser)){
             model.addAttribute("userName", sessionUser.getName());
